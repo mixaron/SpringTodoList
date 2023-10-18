@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Задачи</title>
+</head>
+<body style="display: flex; text-align: center; justify-content: center; flex-wrap: wrap">
+<div style="padding-bottom: 20px; max-width: 500px; max-height: 500px;
+ border: 1px solid black; min-width: 150px; align-items: center; justify-content: center; display: flex">
+    <a style=" justify-content: center;" href="/list/addList">Добавить заметку </a>
+</div>
+<div style="min-width: 200px; max-width: 1000px; max-height: 500px; border: 1px solid black; align-items: center;"
+     th:each="td : ${tdlist}">
+    <p th:text="${td.getName()}"></p>
+    <p th:text="${td.getContent()}"></p>
+    <p style="color: green" th:if="${td.isCompleted()}" th:text="Выполнено"></p>
+    <a style="color: red" th:if="${!td.isCompleted()}" th:href="@{/list/changeList/{id}(id=${td.getId()})}" th:text="Выполнить"></a>
+    <br>
+</div>
+</body>
+</html>

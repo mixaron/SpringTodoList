@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Изменить</title>
 </head>
 <body>
-$END$
+<form th:method="POST" th:action="@{/list/{id}(id=${tdlist.getId()})}" th:object="${tdlist}">
+    <label for="list_name">Поменяйте название</label>
+    <input type="text" th:field="*{name}" id="list_name">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}"></div>
+
+    <br>
+    <label for="list_content">Поменяйте контент</label>
+    <input type="text" th:field="*{content}" id="list_content">
+    <div style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{content}"></div>
+
+    <br>
+    <select name="Выполнить" th:field="*{completed}">
+        <option value="true">Выполнено</option>
+        <option value="false">Еще нет</option>
+    </select>
+1
+    <input type="submit" value="Успешно">
+</form>
 </body>
 </html>
