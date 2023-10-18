@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить заметку</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/list/add}" th:object="${tdlist}">
+  <label for="list_name">Название </label>
+  <input type="text" th:field="*{name}" id="list_name">
+    <div th:if="${#fields.hasErrors()}" th:errors="*{name}"></div>
+
+    <br>
+  <label for="list_content">Контент</label>
+  <input type="text" th:field="*{content}" id="list_content">
+    <div th:if="${#fields.hasErrors()}" th:errors="*{content}"></div>
+
+    <br>
+  <input type="submit" value="Успешно">
+</form>
+</body>
+</html>
