@@ -14,7 +14,7 @@ import ru.mixaron.springtodolist.util.TDLValidator;
 @RequestMapping("/list")
 public class ToDoController {
 
-    private final TDListService tdList;
+    private final TDListService toDoList;
 
     private final TDLValidator tdlValidator;
 
@@ -24,7 +24,7 @@ public class ToDoController {
 
 
     public ToDoController(TDListService tdList, TDLValidator tdlValidator, TDListService tdListService) {
-        this.tdList = tdList;
+        this.toDoList = tdList;
         this.tdlValidator = tdlValidator;
         this.tdListService = tdListService;
     }

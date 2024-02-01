@@ -1,0 +1,6 @@
+CREATE TABLE list(
+    id serial primary key,
+    name varchar(128) not null,
+    content text not null,
+    is_completed bool
+)
